@@ -12,7 +12,20 @@ prompt="""You are Yotube video summarizer. You will be taking the transcript tex
 and summarizing the entire video and providing the important summary in points
 within 250 words. Please provide the summary of the text given here:  """
 
+def extract_transcript_api(youtube_video_url):
+    try:
+        video_id=youtube_video_url.split("=")[1]  #get the video id from youtube url after "="
+        transcript_text=YouTubeTranscriptApi.get_transcript(video_id) #This will return a list of dictionaries 
 
+        #append all transcript text
+        transcript = ""
+        for i in transcript_text:
+            transcript += " " + i["text"]
+
+        return transcript    
+
+    except Exception as e:
+        raise e
 
 
 # calling gemini ai and summarizing the transcript
