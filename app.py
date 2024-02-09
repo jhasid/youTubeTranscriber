@@ -33,7 +33,7 @@ def generate_gemini_content(transcript_text,prompt):
 
     model=genai.GenerativeModel("gemini-pro")
     response=model.generate_content(prompt+transcript_text)
-    return response
+    return response.text
 
 
 #streamlit app
@@ -43,7 +43,7 @@ youtube_link = st.text_input("Enter YouTube Video Link:")
 
 if youtube_link:
     video_id = youtube_link.split("=")[1]
-    print(video_id)
+    #print(video_id)
     st.image(f"http://img.youtube.com/vi/{video_id}/0.jpg", use_column_width=True)  #Thumbnail image
 
 if st.button("Get Detailed Notes"):

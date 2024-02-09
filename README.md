@@ -5,3 +5,4 @@
      https://makersuite.google.com/app/apikey
      Get API Key
  3. We will be using https://pypi.org/project/youtube-transcript-api/    
+ 4. streamlit run app.py
